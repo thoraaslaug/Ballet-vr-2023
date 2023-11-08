@@ -5,9 +5,9 @@ using UnityEngine;
 public class mirrormovement : MonoBehaviour
 {
 
-    [SerializeField] Transform player;
+    public Transform player;
 
-    [SerializeField] private Transform mirror;
+    public Transform mirror;
     // Start is called before the first frame update
     void Start()
     {
