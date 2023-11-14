@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class AudioCon : MonoBehaviour
 {
-    public AudioSource audioSource;
+    public AudioSource audioSource1;
+    public AudioSource audioSource2;
 
     public void PlaySound()
     {
-        if (audioSource != null)
+        if (audioSource1 != null && audioSource2 !=null)
         {
-            audioSource.Play();
+            audioSource1.Play();
+            audioSource2.Play();
         }
     }
 }

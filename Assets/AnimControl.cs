@@ -1,41 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimControl : MonoBehaviour
 {
     private Animator animator;
     public Transform targetPosition;
-    public float walkSpeed = 3.0f;
-    private bool isWalking = false;
+    public float speed = 3.0f;
+    private bool isDancing = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        isWalking = true; // Assume the character starts walking
     }
 
     void Update()
     {
-        if (isWalking)
+        // Only move the character if it is not currently dancing
+        if (!isDancing)
         {
             // Calculate direction to the target position
             Vector3 direction = (targetPosition.position - transform.position).normalized;
 
             // Set animator parameters
-            animator.SetFloat("Speed", direction.magnitude);
+           // animator.SetFloat("Speed", direction.magnitude);
 
             // Move the character towards the target position
-            transform.Translate(direction * walkSpeed * Time.deltaTime, Space.World);
+            transform.Translate(direction * speed * Time.deltaTime, Space.World);
         }
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (isWalking && collision.CompareTag("Dancer"))
+        if (collision.CompareTag("Dancer"))
         {
+            
             // Set the "Dance" trigger to start the dance animation
             animator.SetBool("Dance", true);
-            isWalking = false; // Stop walking when dancing
+            isDancing = true;
+            
         }
+        speed = 0f;
     }
-
 }

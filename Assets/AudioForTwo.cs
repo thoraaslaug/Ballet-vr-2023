@@ -6,7 +6,7 @@ public class AudioForTwo : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip audioClip1; 
-    public AudioClip audioClip2; 
+    public AudioClip audioClip2;
 
     public void PlayAudioClip1()
     {
@@ -20,5 +20,6 @@ public class AudioForTwo : MonoBehaviour
         // Set the audio clip for the AudioSource and play it
         audioSource.clip = audioClip2;
         audioSource.Play();
+        
     }
 }
