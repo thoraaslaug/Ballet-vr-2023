@@ -16,18 +16,21 @@ public class AnimControl : MonoBehaviour
 
     void Update()
     {
-        // Only move the character if it is not currently dancing
-        if (!isDancing)
-        {
-            // Calculate direction to the target position
-            Vector3 direction = (targetPosition.position - transform.position).normalized;
+       
+    }
 
-            // Set animator parameters
-           // animator.SetFloat("Speed", direction.magnitude);
+    void Move()
+    {
+        Vector3 direction = (targetPosition.position - transform.position).normalized;
 
-            // Move the character towards the target position
-            transform.Translate(direction * speed * Time.deltaTime, Space.World);
-        }
+        // Calculate the new position
+        Vector3 newPosition = transform.position + direction * speed * Time.deltaTime;
+
+        // Set the new position directly
+        transform.position = newPosition;
+
+        // animator.SetFloat("Speed", direction.magnitude);
+        animator.Play("Running");
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -36,7 +39,7 @@ public class AnimControl : MonoBehaviour
         {
             
             // Set the "Dance" trigger to start the dance animation
-            animator.SetBool("Dance", true);
+            animator.Play("Idle");
             isDancing = true;
             
         }

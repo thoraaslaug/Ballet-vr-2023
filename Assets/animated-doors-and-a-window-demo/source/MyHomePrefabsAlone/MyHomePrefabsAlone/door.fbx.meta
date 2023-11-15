@@ -57,16 +57,16 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.83231974
-        functionName: PlayAudioClip2
+      - time: 0.25011912
+        functionName: PlayAudioClip1
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 7922295a0eb66544ca4ff2b805f96648,
           type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.20049505
-        functionName: PlayAudioClip1
+      - time: 0.7962295
+        functionName: PlayAudioClip2
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 7922295a0eb66544ca4ff2b805f96648,
           type: 3}
